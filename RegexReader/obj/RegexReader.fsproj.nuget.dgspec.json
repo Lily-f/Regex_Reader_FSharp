@@ -1,0 +1,62 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Mikekiwi\\Documents\\year 4 Trimester 1\\SWEN431\\Regex_Reader_FSharp\\RegexReader\\RegexReader.fsproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Mikekiwi\\Documents\\year 4 Trimester 1\\SWEN431\\Regex_Reader_FSharp\\RegexReader\\RegexReader.fsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Mikekiwi\\Documents\\year 4 Trimester 1\\SWEN431\\Regex_Reader_FSharp\\RegexReader\\RegexReader.fsproj",
+        "projectName": "RegexReader",
+        "projectPath": "C:\\Users\\Mikekiwi\\Documents\\year 4 Trimester 1\\SWEN431\\Regex_Reader_FSharp\\RegexReader\\RegexReader.fsproj",
+        "packagesPath": "C:\\Users\\Mikekiwi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mikekiwi\\Documents\\year 4 Trimester 1\\SWEN431\\Regex_Reader_FSharp\\RegexReader\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Mikekiwi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "FSharp.Core": {
+              "target": "Package",
+              "version": "[5.0.0, )",
+              "generatePathProperty": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

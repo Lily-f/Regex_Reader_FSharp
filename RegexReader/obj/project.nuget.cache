@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "THHzpqahcY3Ptk3z9CheUiCEqY8jUMn58/817kDVayHTL4MkjltqIawRd3d1ZW+uwunn1jxjnLnhT9eH5DQGPg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Mikekiwi\\Documents\\year 4 Trimester 1\\SWEN431\\Regex_Reader_FSharp\\RegexReader\\RegexReader.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Mikekiwi\\.nuget\\packages\\fsharp.core\\5.0.0\\fsharp.core.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
