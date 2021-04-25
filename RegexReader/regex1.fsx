@@ -24,7 +24,8 @@ let add_alternation (element: element) =
 let run_regex (regex, message) = 
   null
 
-let read_character (characters: string) = 
+let add_element (element: element) = 
+  // TODO: add element to deepest group or alternation. see ruby element class examples
   null
 
 let evaluate_wild (element: element, characters: char[]): bool = 
@@ -55,11 +56,13 @@ let create_element (char: char, is_repeatable: bool): Option<element> =
         alt_elems.[0] <- previous_elements
         alt_elems.[1] <- Array.empty
         elements <- Array.empty
-        Some {Type = element_type.alternation; is_repetable = is_repeatable; is_open = false; elements = alt_elems; depth = depth; value = char}
+        Some {Type = element_type.alternation; is_repetable = is_repeatable; is_open = true; elements = alt_elems; depth = depth; value = char}
     | '(' -> 
       if is_repeatable then raise (SYNTAX_ERROR("SYNTAX ERROR"))
       depth <- depth + 1 
-      Some {Type = element_type.group; is_repetable = is_repeatable; is_open = true; elements = null; depth = depth; value = char}
+      let group_elems: element[][] = Array.empty
+      group_elems.[0] <- Array.empty
+      Some {Type = element_type.group; is_repetable = is_repeatable; is_open = true; elements = group_elems; depth = depth; value = char}
     | ')' -> 
       if depth.Equals 0 then raise (SYNTAX_ERROR("SYNTAX ERROR"))
       close_group(is_repeatable) |> ignore
@@ -79,12 +82,31 @@ let verify_message (message: string) =
       |_ -> false
   )
   if all_valid elements && Array.isEmpty characters then
-    printf "YES"
+    printfn "YES"
   else
-    printf "NO"
+    printfn "NO"
 
-let add_element (element: element) = 
-  null
+let read_character (characters: char[]) = 
+  // Read character at cursor and next character
+  let char = characters.[cursor]
+  let read_ahead = if cursor < characters.Length - 1 then characters.[cursor + 1] else ' '
+  cursor <- cursor + 1
+
+  // Check for repetable syntax errors and if element is repeatable
+  if char.Equals '*' then raise (SYNTAX_ERROR("SYNTAX ERROR"))
+  let mutable is_repeatable = false
+  if read_ahead.Equals '*' then
+    if char.Equals '|' then raise (SYNTAX_ERROR("SYNTAX ERROR"))
+    is_repeatable <- true
+    cursor <- cursor + 1
+
+  // Handle element creation
+  let element = create_element(char, is_repeatable)
+  if not element.IsNone then 
+    if is_nested_child then
+      add_element elements.[elements.Length - 1] |> ignore
+    else
+      elements.[elements.Length] <- element.Value
 
 
 // Read stuff from files and run the methods to verify the strings. 
